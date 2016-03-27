@@ -1,3 +1,6 @@
-.env
+# File extensions
 *.cmd
 *.txt
+
+# Certain filenames
+.env

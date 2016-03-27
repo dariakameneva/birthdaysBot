@@ -10,8 +10,10 @@ import (
 )
 
 var (
-	token = ""
-	debug = true
+	token        = ""
+	debug        = true
+	passQuestion = ""
+	passAnswer   = ""
 )
 
 func init() {
@@ -27,6 +29,9 @@ func init() {
 		log.Fatal("Invalid DEBUG parameter value: must be TRUE or FALSE")
 	}
 	debug = (debugParam == "TRUE")
+
+	passQuestion = os.Getenv("PASSQUESTION")
+	passAnswer = os.Getenv("PASSANSWER")
 }
 
 func main() {
@@ -53,7 +58,7 @@ func main() {
 
 	for update := range updates {
 		log.Printf("[%s] %s", update.Message.From.UserName, update.Message.Text)
-		if _, err := reply(update.Message.Text, update.Message.Chat.ID, bot); err != nil {
+		if err := reply(update.Message.Text, update.Message.Chat.ID, bot); err != nil {
 			log.Println(err)
 		}
 	}
