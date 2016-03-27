@@ -26,6 +26,9 @@ func processCommand(text string) string {
 	return command.(func(string) string)(param)
 }
 func getCommandName(fullText string) string {
+	if !strings.HasPrefix(fullText, "/") {
+		return ""
+	}
 	return strings.Split(fullText, " ")[0]
 }
 

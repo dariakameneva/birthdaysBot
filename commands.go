@@ -12,17 +12,22 @@ var (
 		"/start": askPass,
 		"/passw": askPass,
 		"/set":   setBirthday,
+		"/help":  sendHelp,
 	}
 )
 
 func askPass(param string) string {
 	if param == "" {
-		return passQuestion
+		return passQuestion + passwAddition
 	}
 	if checkPass(param) {
 		return passwOkReply
 	}
 	return passwFailReply
+}
+
+func sendHelp(param string) string {
+	return helpReply
 }
 
 func checkPass(param string) bool {

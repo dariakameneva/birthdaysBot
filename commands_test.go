@@ -47,7 +47,6 @@ func TestCheckPass(t *testing.T) {
 
 func TestAskPass(t *testing.T) {
 	testData := map[string]string{
-		"":    passQuestion,
 		"yes": passwOkReply,
 		"no":  passwFailReply,
 	}

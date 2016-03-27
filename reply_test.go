@@ -38,7 +38,7 @@ func TestProcessCommand(t *testing.T) {
 	testData := map[string]string{
 		"/somecmd":   unknownCommand,
 		"/set Jan 1": fmt.Sprintf(setBDOkFmtReply, 1, "January"),
-		"/start":     passQuestion,
+		"/start":     passQuestion + passwAddition,
 	}
 
 	for msg, expected := range testData {
